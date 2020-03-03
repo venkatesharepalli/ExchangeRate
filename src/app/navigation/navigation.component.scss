@@ -1,0 +1,51 @@
+.example-container {
+  height: 90%;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.side-nav {
+  .mat-nav-list {
+     margin-right: 10px;
+  }
+
+  .mat-list-item-content {
+    padding:0 23px;
+  }
+}
+
+.routes-links-container {
+  flex-direction: column;
+  height: 24%;
+  border: none;
+  justify-content: space-around;
+  padding-right: 11%;
+}
+
+.mat-drawer-inner-container {
+margin-right:20px;
+}
+
+.sidenav-container {
+  width: 90%;
+}
+
+.mat-button-toggle {
+  border:1px solid black !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: #FFE6CC;
+  border: 1px solid #D79B00 !important;
+}
+
+.base-container {
+  width:90%;
+  text-align:right;
+}
+
+.is-active {
+  background-color: #FFE6CC !important;
+  border: 1px solid #D79B00 !important;
+}
