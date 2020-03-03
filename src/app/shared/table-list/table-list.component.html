@@ -1,0 +1,26 @@
+<div>
+    <table [ngStyle]="{'width':'100%'}" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+       <ng-container *ngFor="let column of columnsList" [matColumnDef]="column">
+          <th mat-header-cell *matHeaderCellDef> {{getColHeaderLabel(column)|titlecase}} </th>
+          <td  mat-cell *matCellDef="let element">
+            <span *ngIf="!['direction', 'chart'].includes(column)">{{element[column]}}</span>
+            <span *ngIf="['direction'].includes(column)">
+              <mat-icon *ngIf="element.direction === 'equal'">drag_handle</mat-icon>
+              <mat-icon [ngStyle]="{'color':'green'}" class="up-icon" *ngIf="element.direction === 'up'">arrow_upward</mat-icon>
+              <mat-icon [ngStyle]="{'color':'red'}" class="down-icon" *ngIf="element.direction === 'down'">arrow_downward</mat-icon>
+            </span>
+            <span *ngIf="['chart'].includes(column)">
+              <mat-icon (click)="handleCharClickHandler(element.currency)"> bar_chart</mat-icon>
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsList"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsList;"></tr>
+      </table>
+      <mat-paginator *ngIf="pagination" [pageSizeOptions]="[5, 10, 20]" [pageSize]="10"  showFirstLastButtons></mat-paginator>
+</div>
