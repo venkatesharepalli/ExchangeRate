@@ -1,0 +1,7 @@
+<div class="main-container">
+    <div class="spinner-container" *ngIf="isLoading">
+        <mat-spinner strokeWidth="3" [diameter]="50"></mat-spinner>
+    </div>
+    <app-bar-chart *ngIf="!isLoading && barChartData.length > 0" [barChartData]="barChartData" [barChartLabels]="barChartLabels"></app-bar-chart>
+    <app-error-message *ngIf="!isLoading && barChartData.length === 0"></app-error-message>
+</div>
