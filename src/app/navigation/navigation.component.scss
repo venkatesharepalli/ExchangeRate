@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: row;
 }
+.mat-form-field {
+  width: 10%;
+}
 
 .side-nav {
   .mat-nav-list {
@@ -20,7 +23,11 @@
   height: 24%;
   border: none;
   justify-content: space-around;
-  padding-right: 11%;
+
+  .mat-button-toggle {
+    margin-right: 10px;
+  }
+
 }
 
 .mat-drawer-inner-container {
