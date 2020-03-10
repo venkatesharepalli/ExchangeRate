@@ -29,6 +29,7 @@ export class Top5ExchangeRatesComponent implements OnInit {
   exchangeList = [];
   displayedColumns: string[] = ['currency', 'difference', 'increasedBy'];
   currencyList = [];
+  buttonGroupList: string[] = ['Increase', 'Decrease'];
   constructor(private _exchangeService: ExchangeRateApiService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
