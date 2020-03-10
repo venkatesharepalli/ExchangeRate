@@ -1,0 +1,35 @@
+.routes-links-container {
+    flex-direction: column;
+    height: 24%;
+    border: none;
+    justify-content: space-around;
+  
+    .mat-button-toggle {
+      margin-right: 10px;
+    }
+
+    .mat-button-toggle {
+        border:1px solid black !important;
+      }
+      
+     
+  
+  }
+
+  .toggle-group {
+    width: 50%;
+    margin-left: 33%;
+    padding-bottom: 2%;
+    border-radius: 0px !important;
+    border: none !important;
+
+    .mat-button-toggle {
+        margin-right: 20% !important;
+        border:1px solid black !important;
+      } 
+  }
+
+  .mat-button-toggle-checked {
+    background-color: #FFE6CC;
+    border: 1px solid #D79B00 !important;
+  }

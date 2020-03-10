@@ -1,0 +1,19 @@
+
+
+<ng-container *ngIf="routing; then roterLinkButtons; else buttonsList">
+</ng-container>
+
+<ng-template #roterLinkButtons>
+    <mat-button-toggle-group [hidden]="routing" [(value)]='defaultValue' class="routes-links-container">
+        <mat-button-toggle mat-list-item [value]="list[propertyValue]" [routerLink]="list[propertyValue]"
+            [queryParams]="list.queryParams" *ngFor="let list of dataList;">
+            {{list[propertyValue]}}
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+</ng-template>
+
+<ng-template #buttonsList>
+    <mat-button-toggle-group (change)="toggleChange($event)" [(value)]="defaultValue" class="toggle-group">
+        <mat-button-toggle *ngFor="let item of dataList;" [value]="item">{{item}}</mat-button-toggle>                  
+    </mat-button-toggle-group>
+</ng-template>

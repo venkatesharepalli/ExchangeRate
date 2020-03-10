@@ -1,0 +1,7 @@
+
+<mat-form-field>
+  <mat-select [(value)]="defaultValue" (selectionChange)="onSelectionChangeHandler($event.value)">
+    <mat-option [value]="list[propertyValue]" *ngFor="let list of dropDownList;">{{list[propertyValue]}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
