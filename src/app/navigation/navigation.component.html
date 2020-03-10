@@ -6,21 +6,14 @@
     <div class="base-container">
       <div></div>
       <label>Base: </label>
-      <mat-form-field>
-        <mat-select [(value)]="baseCurrency" (selectionChange)="onBaseCurrencyClickHandler($event.value)">
-          <mat-option [value]="list.currency" *ngFor="let list of currencyList; let i = index">{{list.currency}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-drop-down [dropDownList]="currencyList" [defaultValue]="baseCurrency" propertyValue="currency" (onSelectionChange)="onBaseCurrencyClickHandler($event)">
+      </app-drop-down>
    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #drawer class="side-nav" mode="side" opened>
-    <mat-button-toggle-group [(value)]='selectedLink' class="routes-links-container">
-      <mat-button-toggle value='latest-rates' mat-list-item [routerLink]="['/latest-rates']" [queryParams]="{base: baseCurrency}" >Latest rates</mat-button-toggle>
-      <mat-button-toggle value="historial-rates" mat-list-item [routerLink]="['/historial-rates']" [queryParams]="{base: baseCurrency}" >Last 30 days</mat-button-toggle>
-      <mat-button-toggle value="top-5" mat-list-item [routerLink]="['/top-5']" [queryParams]="{base: baseCurrency}" >Top 5</mat-button-toggle>
-    </mat-button-toggle-group>
+  <mat-sidenav #drawer class="side-nav" mode="side" opened>   
+    <app-toggle-button-group [routing]="true" [dataList]="buttonGroupList" [defaultValue]="selectedLink" propertyValue="value"></app-toggle-button-group>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-container">
     <router-outlet (activate)="changeOfRoutes()"></router-outlet>

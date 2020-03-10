@@ -18,17 +18,7 @@
   }
 }
 
-.routes-links-container {
-  flex-direction: column;
-  height: 24%;
-  border: none;
-  justify-content: space-around;
 
-  .mat-button-toggle {
-    margin-right: 10px;
-  }
-
-}
 
 .mat-drawer-inner-container {
 margin-right:20px;
@@ -38,14 +28,7 @@ margin-right:20px;
   width: 90%;
 }
 
-.mat-button-toggle {
-  border:1px solid black !important;
-}
 
-.mat-button-toggle-checked {
-  background-color: #FFE6CC;
-  border: 1px solid #D79B00 !important;
-}
 
 .base-container {
   width:90%;

@@ -22,6 +22,7 @@ export class NavigationComponent implements OnInit {
   baseCurrency = INITIAL_BASE_CURRENCY;
   currencyList = [];
   selectedLink:string = 'latest-rates';
+  buttonGroupList: any[]
 
   constructor(private _exchangeService: ExchangeRateApiService, private router: Router,
       private activatedRoute: ActivatedRoute) {
@@ -39,6 +40,24 @@ export class NavigationComponent implements OnInit {
               base
           } = params;
           this.baseCurrency = base || INITIAL_BASE_CURRENCY;
+
+        this.buttonGroupList = [
+            {
+              value: 'latest-rates',
+              routerLink: '/latest-rates',
+              queryParams: {base: this.baseCurrency}
+            },
+            {
+              value: 'historial-rates',
+              routerLink: '/historial-rates',
+              queryParams: {base: this.baseCurrency}
+            },
+            {
+              value: 'top-5',
+              routerLink: '/top-5',
+              queryParams: {base: this.baseCurrency}
+            }
+        ]
       });
 
       this._exchangeService.getExchangeRates(this.baseCurrency).subscribe(data => {
