@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, EventEmitter, OnChanges } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -19,23 +19,26 @@ const customColumnsLabels = {
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.scss']
 })
-export class TableListComponent implements OnInit {
-  @Input() dataSource = new MatTableDataSource<ExchangeRate>([]);
-  @Input() columnsList = [];
-  @Input() pagination:boolean = false;
-  @Output() onGraphClickHandler = new EventEmitter<string>();
-
+export class TableListComponent implements OnInit  {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  constructor() {
-   }
+  @Input() dataSource = [];  
+  @Input() columnsList = [];
+  @Input() pagination:boolean;
+  @Output() onGraphClickHandler = new EventEmitter<string>();
+  dataSourceMT = new MatTableDataSource<ExchangeRate>([]);
 
-  ngOnInit() {
-    setTimeout(() => this.dataSource.paginator = this.paginator);
+  constructor() {
   }
 
+  ngOnInit() {
+    this.dataSourceMT = new MatTableDataSource<ExchangeRate>(this.dataSource);
+    this.dataSourceMT.paginator = this.paginator;
+  }
+ 
   handleCharClickHandler(value) {
     this.onGraphClickHandler.emit(value);
   }
+
 
   getColHeaderLabel = (column) => {
     if(customColumnsLabels.hasOwnProperty(column)) {
@@ -45,4 +48,5 @@ export class TableListComponent implements OnInit {
     return column;
 
   }
+
 }
