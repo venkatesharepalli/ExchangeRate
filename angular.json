@@ -24,8 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/custom-theme.scss",
-              "src/styles.scss"
+              "src/assets/custom-theme.scss",
+              "src/assets/styles.scss"
             ],
             "scripts": []
           },
@@ -91,7 +91,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.scss"
+              "src/assets/styles.scss"
             ],
             "scripts": []
           }
