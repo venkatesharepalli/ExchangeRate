@@ -47,7 +47,7 @@ export class ExchangeRatesListComponent implements OnInit {
           for (let [key, value] of Object.entries(data.rates)) {
               test.push({
                   currency: key,
-                  spot: value,
+                  spot: value.toString(),
                   direction: value > 1 ? 'up' : value < 1 ? 'down' : 'equal'
               })
           }

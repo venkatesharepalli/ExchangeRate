@@ -2,6 +2,9 @@
     <div class="spinner-container" *ngIf="isLoading">
         <mat-spinner strokeWidth="3" [diameter]="50"></mat-spinner>
     </div>
-    <app-table-list *ngIf="!isLoading && exchangeList.length > 0" [dataSource]="exchangeList" [columnsList]="displayedColumns" (onGraphClickHandler)="onGraphClickHandler($event)"></app-table-list>
+    <app-table-list *ngIf="!isLoading && exchangeList.length > 0" 
+        [dataSource]="exchangeList" [columnsList]="displayedColumns"
+        (onGraphClickHandler)="onGraphClickHandler($event)"
+        [pagination]="true"></app-table-list>
     <app-error-message *ngIf="!isLoading && exchangeList.length === 0"></app-error-message>
 </div>
